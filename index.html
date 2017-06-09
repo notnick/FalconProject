@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html ng-app="falconApp">
+  <head>
+    <meta charset="utf-8">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet"  href="css/style.css">
+
+    <title>Falcon Project</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="icons/btf.ico">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="app/app.js" type="text/javascript"></script>
+    <script src="script/js.js" type="text/javascript"></script>
+
+  </head>
+
+  <body ng-controller="falconController" ng-cloak>
+
+<!-- main-container -->
+<div class="container-fluid main-fluid-container">
+
+    <!-- -header-container -->
+    <div class="container-fluid header-fluid-container">
+        <div class="col-md-12 ">
+          <div class="heading-box ">
+            <div class="heading-font-thick">Audience</div>
+          </div>
+        </div>
+    </div><!-- -header-container -->
+
+  <div class="container-fluid container-data-main ">
+      <div class="row ">
+        <div class="col-md-12 ">
+          <div class="col-md-6 container-data-left">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs nav-justified" role="tablist">
+                  <li role="presentation" class="active"><a href="#1" aria-controls="settings" role="tab" data-toggle="tab">Talking about</a></li>
+                  <li role="presentation"><a href="#2" aria-controls="home" role="tab" data-toggle="tab">Labels</a></li>
+                </ul>
+
+                <div class="tab-content">
+
+                  <div role="tabpanel" class=" tab-pane fade in active" id="1">
+                    <div class="tab-content-box">
+                      <div class="row">
+                          <div class="col-md-12 border-bottom  flex-box " ng-cloak ng-repeat="item in topics.slice(0,5)">
+                              <div class="col-md-6   flex-box-left">
+                                <div class="topics-font">{{item.name}}</div>
+                              </div>
+                              <div class="col-md-6 flex-box-left">
+
+                          <span ng-repeat="p in topics.slice(0,6)">
+                            <div class="circle-hover-img">
+                            <img class=" circle-icon " ng-init="avatar = getRandomAvatar()" ng-src="{{avatar}}" alt="avatar" >
+                            </div>
+                          </span>   
+                                <span ng-init="count = getRandomUserCount()" class="talking-about-text fade-color-text">+ {{count}} others</span>
+                              </div>
+                          </div>
+
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="sub-header-box sub-header-font">OTHER TOPICS</div>
+                        </div>
+                        <div class="col-md-12 set-height-box ">
+
+                          <span class="label-box">#love (97.1K)</span>
+                          <span class="label-box">#beards (97.1K)</span>
+                          <span class="label-box">#dog (97.1K)</span>
+                          <span class="label-box">#beard (88.1K)</span>
+
+                        <span class="hideLabels">
+                          <span class="label-box">#love (97.1K)</span>
+                          <span class="label-box">#love (97.1K)</span>
+                          <span class="label-box">#love (97.1K)</span>
+                          <span class="label-box">#love (97.1K)</span>
+                          <span class="label-box">#love (97.1K)</span>
+                          <span class="label-box">#love (97.1K)</span>
+                          <span class="label-box">#love (97.1K)</span>
+                          <span class="label-box">#love (97.1K)</span>
+                        </span> 
+
+                          <span id="showHideBtn" class="bold-txt show-more-box flex-box-inline "> 
+                              <span class="show-more-icon flex-box-inline-center">
+                                  <img id="showHideBtnImg" src="icons/more.png" alt="show-more" class=" "/>
+                              </span>
+                              <span id="showHideBtnTxt" class="flex-box-inline-center capitalize">
+                                  show more
+                              </span>
+                        </span>  
+
+                      </div>
+                      </div>
+
+                  </div> <!--Tab Content Box -->
+
+
+                  </div>
+
+                  <div role="tabpanel" class=" tab-pane fade " id="2">
+                    <div class="tab-content-box">
+
+                      <div class="row">
+                           <div class="col-md-12 border-bottom  flex-box " ng-cloak ng-repeat="item in labels.slice(0,5)">
+                              <div class="col-md-6   flex-box-left">
+                                <div class="topics-font color-label-box">{{item.name}}</div>
+                              </div>
+                              <div class="col-md-6 flex-box-left">
+                              <span ng-repeat=" item in labels.slice(0,6)">
+                            <div class="circle-hover-img">
+                            <img class=" circle-icon " ng-init="avatar = getRandomLabelAvatar()" ng-src="{{avatar}}" alt="avatar" >
+                            </div>
+                              </span> 
+                                <span class="talking-about-text fade-color-text" ng-init="count = getRandomUserCount()" >+{{count}}k others</span>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="sub-header-box-labels sub-header-font">OTHER LABELS</div>
+                        </div>
+                        <div class="col-md-12 set-height-box ">
+
+                          <span class="color-label-box ">fan (9)</span>
+                          <span class="color-label-box ">positive (5)</span>
+                          <span class="color-label-box ">influencer (3)</span>
+                          <span class="color-label-box ">label (5)</span>
+
+                       <span class="hideClass">
+                          <span class="color-label-box ">fan (9)</span>
+                          <span class="color-label-box ">positive (5)</span>
+                          <span class="color-label-box ">influencer (3)</span>
+                          <span class="color-label-box ">label (5)</span>
+                       </span>
+
+                           <span id="btnHide" class="bold-txt show-more-box flex-box-inline "> 
+                              <span class="show-more-icon flex-box-inline-center">
+                                  <img id="imgHide" src="icons/more.png" alt="show-more" class=" "/>
+                              </span>
+                              <span id="txtChange" class="flex-box-inline-center capitalize">
+                                  show more
+                              </span>
+                        </span>  
+
+                        </div>
+                      </div>
+
+
+                    </div>
+                  </div>
+
+
+                </div>
+           </div><!-- data left -->
+
+          <div class="col-md-6 container-data-right ">
+            <div class="container-action">
+
+              <div class="row ">
+                <div class="col-md-12  flex-box">
+                  <div class="col-md-6  flex-box-left">
+
+                    <div class="col-md-3  flex-box">
+                        <span class="bold-txt big-font">{{total}}M</span>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="bold-txt semi-bix-font negative-box" data-toggle="tooltip" title="People that are active or imported">{{total}}M</div>
+                      <div class="fade-font-blue negative-box">active</div>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-6  flex-box">
+
+                  <div class="col-md-3 ">
+                      <div class="image-symbol  flex-box" data-toggle="tooltip" title="Female" >
+                        <img src="icons/female.png" alt="female-symbol" class="img-responsive "/>
+                      </div>
+                  </div>
+                  <div class="col-md-3 negative-box-3">
+                      <span class="bold-txt semi-bix-font">{{male}}M</span>
+                      <span class="fade-color-text">{{malePercent}}%</span>
+                  </div> 
+
+                 <div class="col-md-3 ">
+                      <div class="image-symbol  flex-box" data-toggle="tooltip" title="Male">
+                        <img src="icons/male.png" alt="male-symbol" class="img-responsive "/>
+                      </div>
+                  </div>
+                  <div class="col-md-3 negative-box-3">
+                      <span class="bold-txt semi-bix-font">{{female}}M</span>
+                      <span class="fade-color-text">{{femalePercent}}%</span>
+                  </div> 
+
+                  </div>
+
+
+  
+
+                </div>
+              </div>
+
+                <!-- GRAPH BOX -->
+                  <div class="row add-space">
+                    <div class="col-md-12">
+                      <div class="graph-class "></div>
+                    </div>                      
+                  </div><!-- GRAPH BOX -->
+
+                <!-- Bar % -->
+                  <div class="row">
+                    <div class="col-md-12  flex-box top-border">
+                      <!--Networks box-->
+                      <div class="col-md-6 flex-box-left">
+                        <div class="sub-header-box sub-header-font">NETWORKS</div>
+
+                      </div><!--Networks box-->
+
+                      <!--Demographics box-->
+                      <div class="col-md-6 flex-box-left">
+                        <div class="sub-header-box sub-header-font">DEMOGRAPHICS</div>                        
+                      </div> <!--Demographics box-->                   
+                    </div>                      
+                  </div><!-- Bar % -->    
+
+                  <div class="row ">
+                    <div class="col-md-12 ">
+                      <div class="col-md-6 ">
+
+                      <div class="stats-wrapper"  ng-cloack ng-repeat="item in network">
+                        <div class="col-md-3 space-box"><span class="capitalize">{{item.name}}</span></div>
+                        <div class="col-md-5 space-box">
+                          <span class="">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{item.count}}%;" >
+                                  <span class="sr-only"></span>
+                                </div>
+                              </div>
+                          </span>
+                        </div>
+                        <div class="col-md-2 space-box" data-toggle="tooltip" title="{{item.count}}"><span class="fade-font-blue">{{item.count}}%</span></div>
+                      </div>
+
+
+
+                      </div>
+
+                      <div class="col-md-6 ">
+
+                      <div class="stats-wrapper"  ng-cloack ng-repeat="item in demographic">
+                        <div class="col-md-3 space-box"><span class="capitalize">{{item.name}}</span></div>
+                        <div class="col-md-6 space-box">
+                          <span class="">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{item.count}}%;" >
+                                  <span class="sr-only"></span>
+                                </div>
+                              </div>
+                          </span>
+                        </div>
+                        <div class="col-md-2 space-box" data-toggle="tooltip" title="{{item.count}}"><span class="fade-font-blue">{{item.count}}%</span></div>
+                      </div>
+
+                      </div>                      
+                    </div>
+                  </div>              
+
+
+            </div>
+          </div>
+
+      </div><!-- 12 -->
+  </div><!-- row -->
+</div><!-- main-container -->
+  
+
+
+
+  </body>
+</html>
